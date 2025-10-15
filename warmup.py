@@ -1,62 +1,58 @@
 # Meta Hacker Cup 2025 - Problem A: Warm Up
-# Usage:
-#   python solution.py < input.txt > output.txt
+# Run as: python solution.py < input.txt > output.txt
 
 import sys
-from collections import defaultdict
 
 def solve():
-    data = sys.stdin.read().strip().split()
-    it = iter(data)
-    T = int(next(it))
-    out = []
+    t = int(sys.stdin.readline())
+    for case_num in range(1, t + 1):
+        n = int(sys.stdin.readline())
+        a = list(map(int, sys.stdin.readline().split()))
+        b = list(map(int, sys.stdin.readline().split()))
 
-    for case in range(1, T + 1):
-        n = int(next(it))
-        A = [int(next(it)) for _ in range(n)]
-        B = [int(next(it)) for _ in range(n)]
-
-        if any(A[i] > B[i] for i in range(n)):
-            out.append(f"Case #{case}: -1")
+        # Check impossible cases
+        if any(a[i] > b[i] for i in range(n)):
+            print(f"Case #{case_num}: -1")
             continue
 
-        available = set(A)
-        if not set(B).issubset(available):
-            out.append(f"Case #{case}: -1")
+        # If already equal
+        if a == b:
+            print(f"Case #{case_num}: 0")
             continue
 
-        target_indices = defaultdict(list)
-        for i in range(n):
-            target_indices[B[i]].append(i)
+        # If target has a new temperature that doesn't exist in a
+        if not set(b).issubset(set(a)):
+            print(f"Case #{case_num}: -1")
+            continue
 
-        heaters = defaultdict(list)
-        for i in range(n):
-            heaters[A[i]].append(i)
-
-        unique_temps = sorted(set(B), reverse=True)
+        # Simplified valid case handling (greedy simulation)
         ops = []
+        possible = True
 
-        for temp in unique_temps:
-            if not heaters[temp]:
-                out.append(f"Case #{case}: -1")
+        while a != b:
+            changed = False
+            for i in range(n):
+                if a[i] < b[i]:
+                    heater_temp = b[i]
+                    if heater_temp not in a:
+                        possible = False
+                        break
+                    for j in range(n):
+                        if b[j] == heater_temp and a[j] < b[j]:
+                            a[j] = heater_temp
+                            ops.append((a.index(heater_temp) + 1, j + 1))
+                    changed = True
+                    break
+            if not changed or not possible:
+                possible = False
                 break
 
-            heater = heaters[temp][0]
-            for idx in target_indices[temp]:
-                if A[idx] == temp:
-                    continue
-                ops.append((heater + 1, idx + 1))
-                A[idx] = temp
-                heaters[temp].append(idx)
-            else:
-                continue
-            break
+        if not possible:
+            print(f"Case #{case_num}: -1")
         else:
-            out.append(f"Case #{case}: {len(ops)}")
-            for x, y in ops:
-                out.append(f"{x} {y}")
-
-    print("\n".join(out))
+            print(f"Case #{case_num}: {len(ops)}")
+            for op in ops:
+                print(*op)
 
 if __name__ == "__main__":
     solve()
