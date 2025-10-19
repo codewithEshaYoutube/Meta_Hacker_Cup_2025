@@ -3,7 +3,7 @@
 This repository contains my official submissions and optimized solutions for **Meta Hacker Cup 2025**, Meta’s international competitive programming championship that challenges algorithmic thinking, optimization, and real-time problem-solving ability.
 
 ---
-
+![Meta Hacker Cup Certificate](meta-hacker-cup.png)
 ## Overview
 
 **Meta Hacker Cup** is a global annual competition organized by **Meta (Facebook)**, designed to identify top algorithmic problem solvers through high-level programming and data structure challenges.
@@ -14,6 +14,8 @@ I successfully advanced through:
 - **Qualified for Round 2**, placing within the **top 3% globally** among thousands of participants worldwide.
 
 ---
+
+
 
 ## Contest Problems
 
