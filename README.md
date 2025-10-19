@@ -32,19 +32,6 @@ All problems were implemented and tested in **Python**, adhering to computationa
 
 ---
 
-## Repository Structure
-
-Meta_Hacker_Cup_2025/
-│
-├── snakes.py # Solution for Snake Scales (Ch.1)
-├── snakes2.py # Solution for Snake Scales (Ch.2)
-├── problem2.py # Solution for Final Product (Ch.1 & 2)
-├── zonein.py # Solution for Narrowing Down
-├── input.txt / output.txt # Test cases and results
-├── .vscode/ # VSCode configuration files
-
-
----
 
 ## Technical Focus
 
