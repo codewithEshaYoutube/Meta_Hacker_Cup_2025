@@ -18,7 +18,7 @@ I successfully **completed and cleared the Practice Round**, ensuring my eligibi
 After the practice phase, I participated in the official competitive rounds of **Meta Hacker Cup 2025** organized by **Meta (Facebook)**.
 
 - Advanced through **Round 1** with high accuracy and optimized submissions.  
-- Officially **qualified for Round 2 (Round 32)**, performing among the world’s top competitors.  
+- Officially **qualified for Round 2 (Advance Round)**, performing among the world’s top competitors.  
 - Achieved ranking within the **Top 5000 globally** and **Top 80 in Pakistan**, competing against thousands of elite programmers worldwide.
 
 ![Round 1 Completion](round1_completion.png)
